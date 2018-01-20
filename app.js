@@ -21,24 +21,13 @@ router.get('/checkMe', function(req, res) {
     //var mNemonicVaultContract = web3.eth.contract(mnemonicAbi.abi).at(req.query.Address);
     console.log("contract retrieving... ");
     console.log("abi: " + mnemonicAbi.abi);
-    var mNemonicVaultContract = web3.eth.contract(mnemonicAbi.abi).at("0xa0755256eef2f06c9add08a43b64b5ac96051f153a7ddeb1b1348586aafe10e5");
-    
-    //var result = mNemonicVaultContract.retrieveDocument("0x8cdaf0cd259887258bc13a92c0a6da92698644c0", requestedKey);
-
-
-
-/*
-	MnemonicVaultContract.methods.retrieveDocument()
-	.call()
-	.then(console.log);
-*/
+    var mNemonicVaultContract = web3.eth.contract(mnemonicAbi.abi).at('0x8cdaf0cd259887258bc13a92c0a6da92698644c0');
+    console.log("contract loaded");
+    var result = mNemonicVaultContract.getTotalDocuments();
+    //var result = mNemonicVaultContract.retrieveDocument('0x8cdaf0cd259887258bc13a92c0a6da92698644c0', requestedKey);
+    console.log("RESULT: " + result);
 });
 
-/*
-function checkContractHash(hash){
-	hash 
-}
-*/
 
 app.use(router);
 
