@@ -17,8 +17,8 @@ router.get('/', function(req, res) {
 	console.log('Address:', addr);
 	web3.eth.getBalance(addr, function (error, result) {
 		if (!error) {
-			res.send('Ether:' + web3.utils.fromWei(result,'ether'));
-			console.log('Ether: '+ web3.utils.fromWei(result,'ether')); // Show the ether balance after converting it from Wei
+			res.send('Ether:' + result);
+			console.log('Ether: '+ result); // Show the ether balance after converting it from Wei
 		}else{
 			console.log('Huston we have a promblem: ', error); // Should dump errors here
 			res.send('Ether: ' +  error);
@@ -31,3 +31,4 @@ app.use(router);
 app.listen(3000, function() {
   console.log("Node server running on http://localhost:3000");
 });
+
